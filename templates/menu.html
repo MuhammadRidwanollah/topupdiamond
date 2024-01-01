@@ -1,21 +1,55 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RidwanTopup - Menu</title>
-  <style>
-    body{
-      background-color: black;
-    }
-    h1{
-      color: paleturquoise;
-    }
-  </style>
+  <title>Menu top up</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+
 <body>
-  <p>Menu</p>
-  <a href="home">back</a>
-  
+  <nav>
+    <img src="https://i.pinimg.com/736x/bb/8e/29/bb8e29cf5c3f89008086ec780c0d3863.jpg" alt="logo" />
+
+    <div class="nav-content">
+      <div class="search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+        <input type="text" placeholder="Cari game">
+      </div>
+
+      <div class="links">
+        <button>Daftar</button>
+        <button>Login</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- content -->
+  <div class="content">
+    <h1>Game Populer</h1>
+    <div class="card-container">
+      <!-- card -->
+      {% for game in data %}
+      <!-- {{game.image}} -->
+      <div class="card" style="background-image: url('/media/{{game.image}}');">
+        <div class="card-overlay"></div>
+        <h3>{{game.name}}</h3>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <p>© 2023 Ridwanullah. All rights reserved.</p>
+    </footer>
+
 </body>
+
 </html>
